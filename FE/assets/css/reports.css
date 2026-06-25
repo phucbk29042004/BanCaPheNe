@@ -1,0 +1,37 @@
+/* ======================================================
+   reports.css — Báo cáo & Thống kê
+   ====================================================== */
+
+.filter-tab-btn {
+  border-radius: 0 !important;
+  border-bottom: 2px solid transparent !important;
+  padding: 8px 16px !important;
+  color: var(--ink-mute) !important;
+  font-weight: 600 !important;
+  transition: all var(--transition);
+}
+
+.filter-tab-btn:hover {
+  background: rgba(0,0,0,0.02) !important;
+  color: var(--primary) !important;
+}
+
+.filter-tab-btn.active {
+  border-bottom-color: var(--primary) !important;
+  color: var(--primary) !important;
+  background: transparent !important;
+}
+
+/* Charts Card Custom */
+#report-chart-card {
+  border-color: rgba(74, 21, 75, 0.08);
+}
+#report-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Highlight custom columns in tables */
+#report-table td strong.text-primary {
+  color: var(--primary);
+}
