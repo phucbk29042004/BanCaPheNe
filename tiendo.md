@@ -285,3 +285,12 @@
      - Thêm phần tử hiển thị bộ đếm ngược thời gian từ 5 phút (300 giây) trên Modal quét mã QR thanh toán PayOS.
      - Khi đếm ngược kết thúc (`00:00`), tự động đóng Modal và xóa bỏ đơn hàng khỏi cơ sở dữ liệu để giải phóng giỏ hàng/bàn ăn bị treo. Dọn dẹp các timers khi kết thúc giao dịch.
 - **Kết quả**: Thành công. Không gian modal thoải mái trực quan, giao dịch thanh toán QR có thời hạn rõ ràng hạn chế đơn rác.
+
+### 25/06/2026 15:35 — Sửa Chớp Nhấp Nháy PayOS, Responsive POS Dọc & Cuộn Lăn Chuột Ngang
+- **Loại**: Sửa bug / Cải thiện UI UX
+- **File**: `FE/assets/js/api.js`, `FE/assets/js/views/pos.js`, `FE/assets/css/pos.css`, `FE/assets/js/app.js`
+- **Mô tả**:
+  1. **Sửa chớp màn hình PayOS**: Bổ sung cơ chế truy vấn ẩn (quiet request) vào helper `api.js` giúp các API chỉ định (như vòng lặp polling kiểm tra trạng thái hóa đơn PayOS 3 giây/lần ở `pos.js`) chạy ngầm hoàn toàn mà không kích hoạt và làm nhấp nháy loader quay tròn toàn màn hình.
+  2. **Responsive màn hình POS**: Cấu hình quy tắc `@media (max-width: 992px)` trong `pos.css` để sắp xếp dọc hai cột (sản phẩm & giỏ hàng) thành một cột thống nhất trên máy tính bảng và điện thoại di động, đồng thời giới hạn chiều cao tối đa của mỗi phần để dễ thao tác mà không làm vỡ bố cục.
+  3. **Lăn chuột cuộn ngang**: Thêm trình lắng nghe sự kiện `wheel` toàn cục ở `app.js` trên `window`. Tự động nhận diện nếu người dùng lăn bánh xe chuột dọc trên các container cuộn ngang (như `.table-wrapper` hay thanh tab `.pos-tabs`) để chuyển hướng cuộn ngang mượt mà, tiện lợi trên desktop.
+- **Kết quả**: Thành công. Không còn chớp nhấp nháy khi quét QR PayOS, giao diện POS tương thích hoàn hảo trên iPad/Mobile, cuộn ngang bảng dữ liệu siêu mượt mà.

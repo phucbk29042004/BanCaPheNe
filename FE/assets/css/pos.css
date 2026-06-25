@@ -14,10 +14,22 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .pos-layout {
-    height: calc(100vh - 56px - 24px);
-    max-height: calc(100vh - 56px - 24px);
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    gap: 16px;
+    padding: 8px;
+  }
+  .pos-products {
+    height: 60vh;
+    max-height: 60vh;
+  }
+  .pos-cart {
+    height: 75vh;
+    max-height: 75vh;
   }
 }
 

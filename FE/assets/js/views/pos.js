@@ -470,7 +470,7 @@ const handlePayQR = async () => {
 
   // Polling mỗi 3 giây
   pollingTimer = setInterval(async () => {
-    const statusRes = await api.get(`/api/orders/${orderId}`).catch(() => null);
+    const statusRes = await api.get(`/api/orders/${orderId}`, true).catch(() => null);
     if (!statusRes?.success) return;
 
     if (statusRes.data.payment_status === 'paid') {

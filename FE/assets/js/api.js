@@ -19,8 +19,8 @@ const logout = () => {
   window.location.hash = '#login';
 };
 
-const request = async (method, path, body = null, isFormData = false) => {
-  Loader.show();
+const request = async (method, path, body = null, isFormData = false, quiet = false) => {
+  if (!quiet) Loader.show();
   const headers = {};
   const token = getToken();
   if (token) headers['Authorization'] = `Bearer ${token}`;
@@ -52,16 +52,16 @@ const request = async (method, path, body = null, isFormData = false) => {
     }
     throw err;
   } finally {
-    Loader.hide();
+    if (!quiet) Loader.hide();
   }
 };
 
 export const api = {
-  get:    (path)              => request('GET',    path),
-  post:   (path, body)        => request('POST',   path, body),
-  put:    (path, body)        => request('PUT',    path, body),
-  patch:  (path, body)        => request('PATCH',  path, body),
-  delete: (path)              => request('DELETE', path),
-  upload: (path, formData)    => request('POST',   path, formData, true),
-  uploadPut: (path, formData) => request('PUT',    path, formData, true),
+  get:    (path, quiet = false)              => request('GET',    path, null, false, quiet),
+  post:   (path, body, quiet = false)        => request('POST',   path, body, false, quiet),
+  put:    (path, body, quiet = false)        => request('PUT',    path, body, false, quiet),
+  patch:  (path, body, quiet = false)        => request('PATCH',  path, body, false, quiet),
+  delete: (path, quiet = false)              => request('DELETE', path, null, false, quiet),
+  upload: (path, formData, quiet = false)    => request('POST',   path, formData, true, quiet),
+  uploadPut: (path, formData, quiet = false) => request('PUT',    path, formData, true, quiet),
 };
