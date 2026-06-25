@@ -286,6 +286,15 @@
      - Khi đếm ngược kết thúc (`00:00`), tự động đóng Modal và xóa bỏ đơn hàng khỏi cơ sở dữ liệu để giải phóng giỏ hàng/bàn ăn bị treo. Dọn dẹp các timers khi kết thúc giao dịch.
 - **Kết quả**: Thành công. Không gian modal thoải mái trực quan, giao dịch thanh toán QR có thời hạn rõ ràng hạn chế đơn rác.
 
+### 25/06/2026 16:04 — Nâng Cấp Responsive Toàn Diện Cho Tất Cả Các Trang (JS Views)
+- **Loại**: Cải thiện UI UX / Tính năng mới
+- **File**: `FE/assets/css/main.css`
+- **Mô tả**:
+  - Viết lại quy tắc `@media (max-width: 768px)` tại [main.css](file:///d:/BanCaPhe/FE/assets/css/main.css) để áp dụng thiết kế đáp ứng (Responsive) triệt để cho toàn bộ các trang giao diện (Sản phẩm, Khách hàng, Hóa đơn, Báo cáo, Nhân sự, Khuyến mãi).
+  - Ép các thanh lọc dữ liệu (`.filter-bar`), thanh công cụ (`.toolbar`) và tất cả các khối `div` con xếp dọc (`flex-direction: column !important`) kèm giãn rộng 100% kích thước trên các thiết bị di động, ghi đè hoàn toàn các thuộc tính inline flex ban đầu.
+  - Đồng bộ co giãn 1 cột dọc trên thiết bị di động cho biểu đồ/lưới so sánh doanh thu (`#revenue-comparison-grid`), lưới thẻ khuyến mãi (`.vouchers-grid`) và lưới tài khoản (`.users-grid`).
+- **Kết quả**: Thành công. Ứng dụng tương thích hoàn hảo và hiển thị tuyệt đẹp trên mọi kích thước màn hình mà không phá vỡ bố cục gốc.
+
 ### 25/06/2026 15:35 — Sửa Chớp Nhấp Nháy PayOS, Responsive POS Dọc & Cuộn Lăn Chuột Ngang
 - **Loại**: Sửa bug / Cải thiện UI UX
 - **File**: `FE/assets/js/api.js`, `FE/assets/js/views/pos.js`, `FE/assets/css/pos.css`, `FE/assets/js/app.js`

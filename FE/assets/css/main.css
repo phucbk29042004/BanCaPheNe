@@ -1189,8 +1189,10 @@ body.sidebar-collapsed {
   }
 
   .toolbar {
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: stretch !important;
+    gap: 8px !important;
+    width: 100% !important;
   }
 
   .toolbar .search-wrap,
@@ -1203,8 +1205,17 @@ body.sidebar-collapsed {
   }
 
   .filter-bar {
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: stretch !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .filter-bar > div, .toolbar > div {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    max-width: 100% !important;
+    width: 100% !important;
     gap: 8px !important;
   }
 
@@ -1212,9 +1223,22 @@ body.sidebar-collapsed {
   .filter-bar select,
   .filter-bar input,
   .filter-bar button,
-  .filter-bar div {
+  .filter-bar div,
+  .toolbar div {
     max-width: 100% !important;
     width: 100% !important;
+  }
+
+  /* Doanh thu so sanh o trang bao cao */
+  #revenue-comparison-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  
+  .vouchers-grid, .users-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 }
 
